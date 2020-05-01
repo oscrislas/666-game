@@ -3,10 +3,10 @@
     <div class="col-12">
       <headerhome/>
     </div>
-    <div class="col-6">
+    <div class="col-6 my-5 p-5">
       <acunt/>
     </div>
-    <div class="col-6">
+    <div class="col-6 my-5 p-5">
 
     </div>
     <div class="col-12">
