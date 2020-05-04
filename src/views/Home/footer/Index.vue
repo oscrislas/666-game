@@ -1,5 +1,5 @@
 <template>
-    <div class="row bg-dark text-white p-5">
+    <div class="row foter text-white p-5">
         <div>
 
         </div>

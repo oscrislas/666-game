@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import cabesa from './header/Index'
 import left from './left/Index'
 import rigth from './rigth/Index'
@@ -29,6 +30,12 @@ export default {
     left,
     rigth,
     middle
+  },
+  computed: {
+    // map `this.user` to `this.$store.getters.user`
+    ...mapGetters({
+      user: 'user'
+    })
   }
 }
 </script>

@@ -34,11 +34,6 @@ background-color:darkslategrey ;
 .boxchat{
     overflow-y: scroll;
     height: 500px;
-
-}
-
-::-webkit-scrollbar {
-    display: none;  /* Ocultar scroll */
 }
 
 </style>

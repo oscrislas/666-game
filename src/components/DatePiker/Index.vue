@@ -14,7 +14,7 @@
                 </div>
                 <div class="form-group">
                     <select name="" id="" value="Enero" class="form-control" >
-                        <option  value="1992" v-for=" m  in (1992 , 2020)" :key="m">{{m}}</option>
+                        <option  value="1992" v-for=" m  in (120)" :key="m">{{m+1900}}</option>
                     </select>
                 </div>
             </div>

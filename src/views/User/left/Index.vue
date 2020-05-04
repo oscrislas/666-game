@@ -36,8 +36,4 @@ background-color:darkslategrey ;
     height: 500px;
 }
 
-::-webkit-scrollbar {
-    display: none;  /* Ocultar scroll */
-}
-
 </style>

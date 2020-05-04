@@ -3,16 +3,17 @@
     <div class="col-12">
       <headerhome/>
     </div>
-    <div class="col-6 my-3 ">
-      <acunt/>
+    <div class="cuerpo row">
+      <div class="col-6 my-3 ">
+        <acunt/>
+      </div>
+      <div class="col-6 my-3 ">
+        <register/>
+      </div>
+      <div class="col-12">
+        <footerhome/>
+      </div>
     </div>
-    <div class="col-6 my-3 ">
-      <register/>
-    </div>
-    <div class="col-12">
-      <footerhome/>
-    </div>
-
   </div>
 </template>
 
@@ -37,5 +38,7 @@ export default {
 body{
  background-color: black;
 }
+.cuerpo{
 
+}
 </style>

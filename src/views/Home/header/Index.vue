@@ -1,8 +1,9 @@
 <template  >
-    <div class="row pt-3 pb-3 bg-dark">
-        <div class="col-6 container bg-dark text-white">
-            <h1 class="font-weight-bolder">
-                Welcome to buddy.com
+<div class="heder">
+    <div class="row pt-3 pb-3 ">
+        <div class="col-6 text-white">
+            <h1 class="font-weight-bolder ">
+                Welcome to {{ $store.state.nombre }}.com
             </h1>
         </div>
         <div class="col-6 text-white">
@@ -21,10 +22,13 @@
         </div>
 
     </div>
+</div>
+
 </template>
 
 <script>
 import firebase from 'firebase'
+
 export default {
   name: 'head',
   data () {
@@ -39,20 +43,13 @@ export default {
     login () {
       firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password)
         .then(data => {
-          console.log('logeado exitoso')
-          this.$router.replace({ name: 'Dashboard' })
+          // console.log(JSON.stringify(data))
+          this.$router.replace({ name: 'user' })
         })
         .catch(err => {
           this.error = err.message
           console.log('error al logear' + this.error)
         })
-    },
-    signOut () {
-      firebase.auth().signOut().then(() => {
-        this.$router.replace({
-          name: 'home'
-        })
-      })
     }
   }
 

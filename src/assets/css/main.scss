@@ -1,0 +1,16 @@
+.heder{
+    border-radius: 0px 0px 22px 22px;
+    border: 0px solid #000000;
+    box-shadow: inset 0px -15px 40px -1px rgba(255,255,255,1);
+}
+
+.foter{
+    border-radius: 22px 22px 0px 0px;
+    border: 0px solid #000000;
+    box-shadow: inset 0px 15px 40px -1px rgba(255,255,255,1);
+
+}
+
+::-webkit-scrollbar {
+    display: none;  /* Ocultar scroll */
+}
