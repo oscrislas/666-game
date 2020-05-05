@@ -11,7 +11,7 @@
             <img class="post" src="https://ep01.epimg.net/elpais/imagenes/2019/10/30/album/1572424649_614672_1572453030_noticia_normal.jpg" alt="">
         </div>
         <div>
-            <p class="my-3 px-4">
+            <p class="m-3 px-4">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum nulla quidem praesentium fugit sit totam aliquid consequuntur atque quaerat a, voluptate dolore minima suscipit illum, sunt placeat sapiente tempore! Maxime?
             </p>
         </div>
@@ -29,23 +29,5 @@ export default {
     width: 45px;
     height: 45px;
     border-radius: 100%;
-}
-.post{
-    width: auto;
-    height: 300px;
-border-radius: 22px 22px 22px 22px;
--moz-border-radius: 22px 22px 22px 22px;
--webkit-border-radius: 22px 22px 22px 22px;
-border: 0px solid #000000;
-
--webkit-box-shadow: 0px 0px 33px -2px rgba(255,255,255,1);
--moz-box-shadow: 0px 0px 33px -2px rgba(255,255,255,1);
-box-shadow: 0px 0px 33px -2px rgba(255,255,255,1);
-}
-.contenedor{
-border-radius: 22px 22px 22px 22px;
--moz-border-radius: 22px 22px 22px 22px;
--webkit-border-radius: 22px 22px 22px 22px;
-border: 0px solid #000000;
 }
 </style>

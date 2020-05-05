@@ -1,6 +1,7 @@
 export default {
+  namespaced: true,
   state: {
-    nombre: 1
+    nombre: 'oscar'
   },
   mutations: {
     SET_USER (state, payload) {
@@ -8,7 +9,13 @@ export default {
     },
     SUMA (state) {
       state.nombre++
+      console.log(state.nombre)
     }
 
+  },
+  actions: {
+    aslasuma (state, stri) {
+      state.user = stri
+    }
   }
 }

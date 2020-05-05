@@ -1,5 +1,7 @@
+import firebase from 'firebase'
+
 export default {
-  namespace: true,
+  namespaced: true,
   state: {
     user: {
       loggedIn: false,
@@ -30,6 +32,30 @@ export default {
       } else {
         commit('SET_USER', null)
       }
+    },
+    signOut () {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          // this.$router.replace({
+          //  path: 'user'
+          // })
+        })
+    },
+    sigIn ({ commit }, form) {
+      console.log('ogjeto ' + form.email, form.password)
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(form.email, form.password)
+        .then(data => {
+          commit('SET_LOGGED_IN', true)
+          commit('SET_USER', form)
+        })
+        .catch(err => {
+          this.error = err.message
+          console.log(this.error)
+        })
     }
   }
 }

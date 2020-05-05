@@ -1,8 +1,8 @@
 <template>
-    <div class="row w-75 align-middle mx-auto">
+    <div class="row w-75 align-middle mx-auto text-white">
         <div class="col-12">
             <h1>Crear Cuenta</h1>
-            <p class="">Ingresa tu informacion para crearte una Cuenta</p>
+            <p class="">Ingresa tu información para crearte una Cuenta</p>
             <frame class="form-group">
                 <div class="form-inline">
                     <div class="form-group ">
@@ -10,6 +10,9 @@
                     </div>
                     <div class="form-group float-right">
                         <input type="text" v-model="Form.LastName" placeholder="Apellido" class="form-control">
+                    </div>
+                    <div class="form-group float-right">
+                        <FileUpload/>
                     </div>
 
                 </div>
@@ -39,6 +42,7 @@
 
 <script>
 import firebase from 'firebase'
+import FileUpload from '@/components/FileUpload/Index.vue'
 import datepiker from '@/components/DatePiker/Index.vue'
 export default {
   name: 'Register',
@@ -59,7 +63,8 @@ export default {
     }
   },
   components: {
-    datepiker
+    datepiker,
+    FileUpload
   },
   methods: {
     submit () {
@@ -67,9 +72,9 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.Form.Email, this.Form.Password)
         .then(data => {
-          data.user
+          console.log(data.user)
             .updateProfile({
-              displayName: this.Form.Name
+              displayName: this.Form.Name + ' ' + this.Form.LastName
             })
             .then(() => {})
           console.log('gurdado')

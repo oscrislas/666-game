@@ -3,7 +3,7 @@
     <div class="row pt-3 pb-3 ">
         <div class="col-6 text-white">
             <h1 class="font-weight-bolder ">
-                Welcome to {{ $store.state.nombre }}.com
+                Welcome to {{ varA }} {{varB}} {{resultado}}.com
             </h1>
         </div>
         <div class="col-6 text-white">
@@ -14,7 +14,7 @@
             <div class="form-group">
                 <input type="password" v-model="form.password" class="m-3 form-control" placeholder="Password" >
             </div>
-            <b-button class="mx-2" v-on:click="login">Login</b-button>
+            <b-button class="mx-2" v-on:click="login()">Login</b-button>
             <b-button class="mx-2">Other</b-button>
 
         </form>
@@ -27,10 +27,11 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+import { mapMutations, mapState, mapGetters } from 'vuex'
 
 export default {
-  name: 'head',
+
+  name: 'cabecera',
   data () {
     return {
       form: {
@@ -39,17 +40,19 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState('cal', ['varA']),
+    ...mapState('cal', ['varB']),
+    ...mapGetters('cal', ['resultado'])
+  },
   methods: {
+    ...mapMutations('cal', ['SETA', 'SETB']),
     login () {
-      firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password)
-        .then(data => {
-          // console.log(JSON.stringify(data))
-          this.$router.replace({ name: 'user' })
-        })
-        .catch(err => {
-          this.error = err.message
-          console.log('error al logear' + this.error)
-        })
+      // this.$store.commit('aslasuma')
+      this.$store.dispatch('oauth/sigIn', this.form)
+      this.$router.replace({
+        path: 'user'
+      })
     }
   }
 

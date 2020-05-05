@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="text-white">
         <h1>Cuentas</h1>
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt in optio consequatur. Reiciendis, ducimus repellat saepe nesciunt, inventore vitae hic eaque perspiciatis quod facilis dolores quasi, magnam ad soluta nisi?
