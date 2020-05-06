@@ -10,14 +10,6 @@
       </div>
       <div class="col-6 my-3 ">
           <div class="m-auto">
-      <notification :show="error">
-        <template slot="titulo">
-          <h3> Error al Iniciar Seccion</h3>
-        </template>
-        <template slot="mensaje">
-          <p> este es el mensaje</p>
-        </template>
-      </notification>
     </div>
         <register/>
       </div>
@@ -35,7 +27,6 @@ import headerhome from './header/Index'
 import footerhome from './footer/Index'
 import acunt from './accounts/Index'
 import register from '@/components/Register/Index'
-import notification from '@/components/Notification/Index'
 
 export default {
   name: 'headerr',
@@ -43,8 +34,7 @@ export default {
     headerhome,
     footerhome,
     acunt,
-    register,
-    notification
+    register
   },
   data () {
     return {

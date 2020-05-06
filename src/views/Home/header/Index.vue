@@ -9,13 +9,13 @@
         <div class="col-6 text-white">
         <form class="form-inline" @submit.prevent="login">
             <div class="form-group">
-                <input type="text" v-model ="form.email" class="m-3 form-control" name="" id="" placeholder="Email or Phone">
+                <input type="text" v-model="form.email" class="m-3 form-control" name="" id="" placeholder="Email or Phone">
             </div>
             <div class="form-group">
                 <input type="password" v-model="form.password" class="m-3 form-control" placeholder="Password" >
             </div>
             <b-button class="mx-2" v-on:click="login()">Login</b-button>
-            <b-button class="mx-2">Other</b-button>
+            <b-button class="mx-2" v-on:click="otro">Other</b-button>
 
         </form>
 
@@ -49,10 +49,16 @@ export default {
     ...mapMutations('cal', ['SETA', 'SETB']),
     login () {
       // this.$store.commit('aslasuma')
-      this.$store.dispatch('oauth/sigIn', this.form)
-      this.$router.replace({
-        path: 'user'
+      this.$store.dispatch('oauth/sigIn', this.form).then(() => {
+        console.log(this.form)
+        this.$router.replace({ path: 'user' })
+      }).catch(err => {
+        this.error = err.message
+        console.log(this.error)
       })
+    },
+    otro () {
+      this.$router.replace({ path: 'user' })
     }
   }
 

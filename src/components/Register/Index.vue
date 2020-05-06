@@ -1,5 +1,13 @@
 <template>
     <div class="row w-75 align-middle mx-auto text-white">
+          <notification :show="false">
+        <template slot="titulo">
+          <h3> Error al Crear la cuenta</h3>
+        </template>
+        <template slot="mensaje">
+          <p> este es el mensaje</p>
+        </template>
+      </notification>
         <div class="col-12">
             <h1>Crear Cuenta</h1>
             <p class="">Ingresa tu información para crearte una Cuenta</p>
@@ -10,9 +18,6 @@
                     </div>
                     <div class="form-group float-right">
                         <input type="text" v-model="Form.LastName" placeholder="Apellido" class="form-control">
-                    </div>
-                    <div class="form-group float-right">
-                        <FileUpload/>
                     </div>
 
                 </div>
@@ -44,9 +49,8 @@
 
 <script>
 import firebase from 'firebase'
-import FileUpload from '@/components/FileUpload/Index.vue'
 import datepiker from '@/components/DatePiker/Index.vue'
-
+import notification from '@/components/Notification/Index.vue'
 export default {
   name: 'Register',
   data () {
@@ -67,7 +71,7 @@ export default {
   },
   components: {
     datepiker,
-    FileUpload
+    notification
   },
   methods: {
     getfecha (val) {
@@ -79,12 +83,13 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.Form.Email, this.Form.Password)
         .then(data => {
-          console.log(data.user)
+          data.user
             .updateProfile({
               displayName: this.Form.Name + ' ' + this.Form.LastName
             })
-            .then(() => {})
-          console.log('gurdado')
+            .then(() => { })
+          console.log('paso por aqui')
+          this.$router.push({ path: 'ConRegistro' })
         })
         .catch(err => {
           console.log(err)

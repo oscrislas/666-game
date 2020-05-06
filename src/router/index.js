@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home/Index.vue'
-import firebase from 'firebase'
+// import firebase from 'firebase'
 
 Vue.use(VueRouter)
 
@@ -10,6 +10,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/ConRegistro',
+    name: 'ConReg',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ComReg/Index.vue')
   },
   {
     path: '/perfil',
@@ -23,7 +28,7 @@ const routes = [
     path: '/user',
     name: 'User',
     meta: {
-      requiresAuth: false
+      requiresAuth: true
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -38,6 +43,7 @@ const router = new VueRouter({
   routes
 })
 
+/*
 router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
@@ -46,5 +52,5 @@ router.beforeEach((to, from, next) => {
   else if (!requiresAuth && currentUser) next('/')
   else next()
 })
-
+*/
 export default router

@@ -23,6 +23,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   background-color: black;
+  height:100vh;
+  margin:0;
+  display: flex;
+  flex-direction: column;
 }
 
 #nav {

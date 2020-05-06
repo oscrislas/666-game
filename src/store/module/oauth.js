@@ -44,17 +44,13 @@ export default {
         })
     },
     sigIn ({ commit }, form) {
-      console.log('ogjeto ' + form.email, form.password)
-      firebase
+      return firebase
         .auth()
         .signInWithEmailAndPassword(form.email, form.password)
         .then(data => {
           commit('SET_LOGGED_IN', true)
           commit('SET_USER', form)
-        })
-        .catch(err => {
-          this.error = err.message
-          console.log(this.error)
+          console.log(data)
         })
     }
   }
