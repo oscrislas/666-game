@@ -19,15 +19,17 @@
                 <div class="form-group">
                 <input type="email" placeholder="Email" v-model="Form.Email" class="form-control my-4">
                 <input type="password" placeholder="Contraseña" v-model="Form.Password" class="form-control my-4">
-                <datepiker/>
-                <div class="btn-group btn-group-toggle  my-4" data-toggle="buttons">
+                <datepiker v-on:fecha="getfecha"/>
+
+                <div class="btn-group my-4" >
                     <label class="btn btn-secondary ">
-                        <input type="radio" name="option" id="option1" autocomplete="off" checked>Hombre
+                        <input type="radio" name="option" id="option1" value="male" checked v-model="Form.Gender">Hombre
                     </label>
                     <label class="btn btn-secondary ">
-                        <input type="radio" name="option" id="option2" autocomplete="off"> Mujer
+                        <input type="radio" name="option" id="option2" value="female" v-model="Form.Gender"> Mujer
                     </label>
                 </div>
+
                 </div>
 
                 <p class="">
@@ -44,6 +46,7 @@
 import firebase from 'firebase'
 import FileUpload from '@/components/FileUpload/Index.vue'
 import datepiker from '@/components/DatePiker/Index.vue'
+
 export default {
   name: 'Register',
   data () {
@@ -54,7 +57,7 @@ export default {
         Email: '',
         Phone: '',
         Password: '',
-        Birthday: Date,
+        Birthday: '',
         Gender: '',
         ImageProfile: '',
         ImegeHome: '',
@@ -67,6 +70,10 @@ export default {
     FileUpload
   },
   methods: {
+    getfecha (val) {
+      console.log(val)
+      this.Form.Birthday = val
+    },
     submit () {
       firebase
         .auth()
