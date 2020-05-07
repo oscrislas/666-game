@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import apiAuth from '@/api/apiAuth'
 
 export default {
   namespaced: true,
@@ -27,29 +27,22 @@ export default {
       if (user) {
         commit('SET_USER', {
           displayName: user.displayName,
-          email: user.email
+          email: user.email,
+          phoneNumber: user.phoneNumber,
+          photoURL: user.photoURL
         })
       } else {
         commit('SET_USER', null)
       }
     },
     signOut () {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          // this.$router.replace({
-          //  path: 'user'
-          // })
-        })
+      return apiAuth.logout()
     },
     sigIn ({ commit }, form) {
-      return firebase
-        .auth()
-        .signInWithEmailAndPassword(form.email, form.password)
+      return apiAuth.loginUser(form)
         .then(data => {
           commit('SET_LOGGED_IN', true)
-          commit('SET_USER', form)
+          commit('SET_USER', data)
           console.log(data)
         })
     }

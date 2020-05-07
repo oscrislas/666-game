@@ -12,7 +12,7 @@
     <input class="form-control my-5" type="text" placeholder="Add another thing XD">
 
         <b-button class="m-5">Save</b-button>
-    <b-button class="m-5">Finish</b-button>
+    <b-button class="m-5" to="user" >Finish</b-button>
 
     </div>
 

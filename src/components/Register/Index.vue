@@ -63,7 +63,7 @@ export default {
         Password: '',
         Birthday: '',
         Gender: '',
-        ImageProfile: '',
+        ImageProfile: 'https://www.cognodata.com/wp-content/uploads/2019/01/perfil-de-cliente-e1549901099803-1.jpg',
         ImegeHome: '',
         Friends: Object
       }
@@ -83,13 +83,19 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.Form.Email, this.Form.Password)
         .then(data => {
+          console.log(data.user)
           data.user
             .updateProfile({
-              displayName: this.Form.Name + ' ' + this.Form.LastName
+              displayName: this.Form.Name + ' ' + this.Form.LastName,
+              phoneNumber: this.Form.Phone,
+              photoURL: this.Form.ImageProfile === '' ? 'https://www.cognodata.com/wp-content/uploads/2019/01/perfil-de-cliente-e1549901099803-1.jpg' : this.Form.ImageProfile,
+              birthday: this.Birthday,
+              genare: this.Birthday
+
             })
             .then(() => { })
           console.log('paso por aqui')
-          this.$router.push({ path: 'ConRegistro' })
+          // this.$router.push({ path: 'ConRegistro' })
         })
         .catch(err => {
           console.log(err)

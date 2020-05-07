@@ -7,7 +7,7 @@
         <h4>Oscar Islas Oliver</h4>
         </div>
 
-        <div>
+        <div >
             <img class="post" src="https://ep01.epimg.net/elpais/imagenes/2019/10/30/album/1572424649_614672_1572453030_noticia_normal.jpg" alt="">
         </div>
         <div>

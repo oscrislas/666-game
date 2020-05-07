@@ -1,6 +1,7 @@
 import firebase from 'firebase'
 
 export default {
+  // formas de logeo usuario
   registerUser (form) {
     return firebase.auth()
       .createUserWithEmailAndPassword(form.email, form.password)

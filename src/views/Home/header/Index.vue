@@ -51,16 +51,25 @@ export default {
       // this.$store.commit('aslasuma')
       this.$store.dispatch('oauth/sigIn', this.form).then(() => {
         console.log(this.form)
-        this.$router.replace({ path: 'user' })
+        this.$router.push({ path: 'user' })
       }).catch(err => {
         this.error = err.message
         console.log(this.error)
       })
     },
     otro () {
-      this.$router.replace({ path: 'user' })
+      // this.$store.dispatch('user/CREATE_USER', this.form).then((docRef) => {
+      //   this.board.title = ''
+      //   this.board.description = ''
+      //   this.board.author = ''
+      //   console.log('exito')
+      // }
+      // )
+      //   .catch((error) => {
+      //     alert('Error adding document: ', error)
+      //   })
     }
-  }
 
+  }
 }
 </script>
