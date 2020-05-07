@@ -1,20 +1,21 @@
-import db from '@/api/apiBD'
+import firebase from '@/api/conection'
+require('firebase/firestore')
 
-const ref = db
-
+const db = firebase.firebase.firestore()
 export default {
 
   editUser (id, datos) {
-    return ref.doc(id).set(datos)
+    return db.doc(id).set(datos)
   },
   getUser () {
-    return ref.doc(this.$route.params.id).get()
+    return db.collection('users').get()
   },
   createUser (datos) {
-    return this.ref.add(datos)
+    console.log(db)
+    return db.collection('user').add({ nom: 'dfa' })
   },
   deleteUser (id) {
-    return ref.doc(id).delete()
+    return db.doc(id).delete()
   }
 
 }

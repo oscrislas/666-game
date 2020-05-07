@@ -58,16 +58,13 @@ export default {
       })
     },
     otro () {
-      // this.$store.dispatch('user/CREATE_USER', this.form).then((docRef) => {
-      //   this.board.title = ''
-      //   this.board.description = ''
-      //   this.board.author = ''
-      //   console.log('exito')
-      // }
-      // )
-      //   .catch((error) => {
-      //     alert('Error adding document: ', error)
-      //   })
+      this.$store.dispatch('user/CREATE_USER', this.form).then((docRef) => {
+        console.log('exito')
+      }
+      )
+        .catch((error) => {
+          alert('Error adding document: ', error)
+        })
     }
 
   }
