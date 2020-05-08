@@ -95,7 +95,7 @@ export default {
             })
             .then(() => { })
           console.log('paso por aqui')
-          // this.$router.push({ path: 'ConRegistro' })
+          this.$router.push({ path: 'ComReg' })
         })
         .catch(err => {
           console.log(err)

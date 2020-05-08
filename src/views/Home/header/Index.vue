@@ -51,7 +51,7 @@ export default {
       // this.$store.commit('aslasuma')
       this.$store.dispatch('oauth/sigIn', this.form).then(() => {
         console.log(this.form)
-        this.$router.push({ path: 'user' })
+        this.$router.push({ path: '/' })
       }).catch(err => {
         this.error = err.message
         console.log(this.error)

@@ -1,8 +1,12 @@
 <template>
     <div class="heder wx-100 py-3">
-        <div class="form-inline">
-        <img class="mx-5" :src="user.data.user.photoURL" alt="">
-        <h1 class="text-white">Hi {{ user.data.user.displayName }}</h1>
+        <div  class="form-inline">
+                <router-link :to="user.data.user.email" id="name">
+                <div  class="form-inline">
+                  <img  class="mx-5" :src="user.data.user.photoURL" id="name">
+                  <h1 class="text-white">Hi {{ user.data.user.displayName }}</h1>
+                </div>
+                </router-link>
         <input class="form-control r" placeholder="Buscar" type="text">
         <b-button v-on:click="Logout">Logout</b-button>
         </div>

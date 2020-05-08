@@ -1,7 +1,7 @@
 <template>
     <div class="form-group p-5 template row">
     <div class="col-12">
-                <h2>
+    <h2>
         Complate your Register
     </h2>
     </div>

@@ -1,55 +1,59 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home/Index.vue'
+import firebase from '../api/conection'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/login',
     name: 'Home',
-    component: Home
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home/Index.vue')
   },
   {
-    path: '/ConRegistro',
-    name: 'ConReg',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ComReg/Index.vue')
+    name: 'registro',
+    path: '/ComReg',
+    component: () => import(/* webpackChunkName: "continue" */ '../views/ComReg/Index.vue')
+
   },
   {
-    path: '/perfil',
-    name: 'perfil',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Perfil/Index.vue')
-  },
-  {
-    path: '/user',
+    path: '/',
     name: 'User',
     meta: {
       requiresAuth: true
     },
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "user" */ '../views/User/Index.vue')
+  },
+  {
+    name: 'perfil',
+    path: '/:nombre',
+    component: () => import(/* webpackChunkName: "perfil" */ '../views/Perfil/Index.vue'),
+    meta: {
+      requiresAuth: true
+    }
+
+  },
+  {
+    path: '*',
+    name: 'not_found',
+    component: () => import(/* webpackChunkName: "error" */ '../views/Error/Index.vue')
   }
+
 ]
 
 const router = new VueRouter({
-  // mode: 'history',
+  mode: 'history',
   // base: process.env.BASE_URL,
   routes
 })
 
-/*
 router.beforeEach((to, from, next) => {
-  const currentUser = firebase.auth().currentUser
+  const currentUser = firebase.firebase.auth().currentUser
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
 
-  if (requiresAuth && !currentUser) next('/')
-  else if (!requiresAuth && currentUser) next('/')
+  if (requiresAuth && !currentUser) next('/login')
+  else if (!requiresAuth && currentUser) next('/login')
   else next()
 })
-*/
+
 export default router
